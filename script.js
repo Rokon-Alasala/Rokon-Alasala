@@ -392,7 +392,7 @@ function populateFixedPricesTable(city) {
                     <th>الفندق</th>
                     <th>النجوم</th>
                     <th>وجبات الطعام</th>
-                    <th>السعر الأساسي (دينار)</th>
+                    <th>السعر (دينار أردني)</th>
                 </tr>
             </thead>
             <tbody>
