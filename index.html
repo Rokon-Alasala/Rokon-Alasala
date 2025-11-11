@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rokon Alasala Travel And Tourism</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    
+    <header id="main-header">
+        <img id="logo" src="logo.png" alt="شعار ركن الأصالة للسفر والسياحة">
+        <div class="header-content">
+            <h1>Rokon Alasala Travel And Tourism</h1>
+        </div>
+    </header>
+
+    <main id="content">
+        <section id="home-page" class="page active">
+            <div class="buttons-container">
+                <button onclick="showPage('istanbul-page')">اسطنبول - Istanbul</button>
+                <button onclick="showPage('antalya-page')">أنطاليا - Antalya</button>
+                <!--button onclick="showPage('trabzon-page')">طرابزون - Trabzon</button>-->
+                <button onclick="showPage('cairo-page')">القاهرة - Cairo</button>
+                <!--button onclick="showPage('beirut-page')">بيروت - Beirut</button>-->
+                <button onclick="showPage('tbilisi-page')">تبليسي - Tbilisi</button>
+                
+                <!--button onclick="showPage('batumiTbilisi-page')">باتومي وتبليسي (باقة مدمجة)</button>-->
+            </div>
+        </section>
+
+        <section id="istanbul-page" class="page">
+            <div class="city-header">
+                <h2>اسطنبول - Istanbul</h2>
+                <button onclick="showPage('home-page')" class="back-button">العودة للرئيسية</button>
+            </div>
+
+            <div class="city-layout">
+                <div class="calculator-container">
+                    <h3>آلة حاسبة العروض</h3>
+                    <div class="calculator-form">
+                        
+                        <label for="istanbul-hotel">اختر الفندق :</label>
+                        <select id="istanbul-hotel" onchange="calculateTripPrice('istanbul')">
+                            </select>
+                        
+                        <label for="istanbul-nights">عدد الليالي:</label>
+                        <input type="number" id="istanbul-nights" min="1" value="7" onchange="calculateTripPrice('istanbul')">
+
+                        <label for="istanbul-date">تاريخ السفر:</label>
+                        <input type="date" id="istanbul-date" onchange="checkFormValidity('istanbul')">
+
+                        <label for="istanbul-people-count">عدد الأشخاص:</label>
+                        <input type="number" id="istanbul-people-count" min="1" value="2" onchange="calculateTripPrice('istanbul')">
+
+                        <label for="istanbul-phone">رقم الهاتف:</label>
+                        <input type="tel" id="istanbul-phone" placeholder="للتواصل" onchange="checkFormValidity('istanbul')">
+
+                    </div>
+                    
+                    <div id="istanbul-result" class="result-box" style="display: none;">
+                    </div>
+
+                    <button id="istanbul-send-btn" onclick="sendInquiryEmail('istanbul')" disabled>
+                        إرسال طلب الحجز
+                    </button>
+                </div>
+
+                <div class="trip-details-box">
+                    <h4>السعر يشمل (اسطنبول):</h4>
+                    <ul>
+                        <li>تذاكر الطيران على متن الأردنية للطيران (ذهاب وإياب) ✈️</li>
+                        <li>الاقامة في الفندق حسب عدد الليالي المختارة🏨</li>
+                        <li>وجبة الإفطار يوميا 🍽️</li>
+                        <li> الاستقبال والتوديع من والى المطار 🚘</li>
+                        <li>جميع الضرائب والرسوم</li>
+                        <li>رحلات يومية : </l>
+                            <li>SAPANCA  - صبنجة ومعشوقية مع وجبة غداء</l>
+                                <li>BURSA TELESİYEJ - بورصةو تلسياج - مع وجبة غداء</l>
+                                    <li>PRİNCESS İSLAND - جزيرة الأميرات مع وجبة غداء </l>
+                                        <li>ŞİLE - شيللا وأغوا مع وجبة غداء </l>
+                                            <li>ARABİC NİGHT - سهرة عربية في البسفور مع وجبة عشاء </l>
+                                            
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="antalya-page" class="page">
+            <div class="city-header">
+                <h2>أنطاليا - Antalya</h2>
+                <button onclick="showPage('home-page')" class="back-button">العودة للرئيسية</button>
+            </div>
+
+            <div class="city-layout">
+                <div class="calculator-container">
+                    <h3>آلة حاسبة العروض</h3>
+                    <div class="calculator-form">
+                        
+                        <label for="antalya-hotel">اختيار المنتجع المطلوب:</label>
+                        <select id="antalya-hotel" onchange="calculateTripPrice('antalya')">
+                            </select>
+                        
+                        <label for="antalya-nights">عدد الليالي:</label>
+                        <input type="number" id="antalya-nights" min="1" value="7" onchange="calculateTripPrice('antalya')">
+
+                        <label for="antalya-date">تاريخ السفر:</label>
+                        <input type="date" id="antalya-date" onchange="checkFormValidity('antalya')">
+
+                        <label for="antalya-people-count">عدد الأشخاص:</label>
+                        <input type="number" id="antalya-people-count" min="1" value="2" onchange="calculateTripPrice('antalya')">
+
+                        <label for="antalya-phone">رقم الهاتف:</label>
+                        <input type="tel" id="antalya-phone" placeholder="للتواصل" onchange="checkFormValidity('antalya')">
+
+                    </div>
+                    
+                    <div id="antalya-result" class="result-box" style="display: none;">
+                    </div>
+
+                    <button id="antalya-send-btn" onclick="sendInquiryEmail('antalya')" disabled>
+                        إرسال طلب الحجز
+                    </button>
+                </div>
+
+                <div class="trip-details-box">
+                    <h4>السعر يشمل (أنطاليا):</h4>
+                    <ul>
+                        <li>تذاكر الطيران على متن خطوط PEGASUS أو SUNEXPRESS (ذهاب وإياب) ✈️</li>
+                        <li>اقامة في الفندق  حسب عدد الليالي المختارة</li>
+                        <li>الاستقبال والتوديع من والى المطار ( سيارة خاصة )</li>
+                        <li>جميع الوجبات والمشروبات</li>
+                        
+                        </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="trabzon-page" class="page">
+            <div class="city-header">
+                <h2>طرابزون - Trabzon</h2>
+                <button onclick="showPage('home-page')" class="back-button">العودة للرئيسية</button>
+            </div>
+
+            <div class="city-layout">
+                <div class="calculator-container">
+                    <h3>آلة حاسبة العروض</h3>
+                    <div class="calculator-form">
+                        
+                        <label for="trabzon-hotel">اختيار الفندق المطلوب:</label>
+                        <select id="trabzon-hotel" onchange="calculateTripPrice('trabzon')">
+                            </select>
+                        
+                        <label for="trabzon-nights">عدد الليالي (4، 5، أو 7 ليالي فقط):</label>
+                        <select id="trabzon-nights" onchange="calculateTripPrice('trabzon')">
+                            <option value="0" disabled selected>اختر عدد الليالي</option>
+                            <option value="4">4 ليالي</option>
+                            <option value="5">5 ليالي</option>
+                            <option value="7">7 ليالي</option>
+                        </select>
+                        <label for="trabzon-date">تاريخ السفر:</label>
+                        <input type="date" id="trabzon-date" onchange="checkFormValidity('trabzon')">
+
+                        <label for="trabzon-people-count">عدد الأشخاص:</label>
+                        <input type="number" id="trabzon-people-count" min="1" value="2" onchange="calculateTripPrice('trabzon')">
+
+                        <label for="trabzon-phone">رقم الهاتف:</label>
+                        <input type="tel" id="trabzon-phone" placeholder="للتواصل" onchange="checkFormValidity('trabzon')">
+
+                    </div>
+                    
+                    <div id="trabzon-result" class="result-box" style="display: none;">
+                    </div>
+
+                    <button id="trabzon-send-btn" onclick="sendInquiryEmail('trabzon')" disabled>
+                        إرسال طلب الحجز
+                    </button>
+                </div>
+
+                <div class="trip-details-box">
+                    <h4>السعر يشمل (طرابزون):</h4>
+                    <ul>
+                        <li>تذاكر الطيران الدولية (ذهاب وإياب) ✈️</li>
+                        <li>الإقامة بالعدد المختار من الليالي (حسب الفندق المختار)</li>
+                        <li>تأمين صحي للسفر</li>
+                        <li>مواصلات من وإلى المطار</li>
+                        <li>جولات سياحية يومية مع مرشد</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="cairo-page" class="page">
+            <div class="city-header">
+                <h2>القاهرة - Cairo</h2>
+                <button onclick="showPage('home-page')" class="back-button">العودة للرئيسية</button>
+            </div>
+
+            <div class="city-layout">
+                <div class="calculator-container">
+                    <h3>آلة حاسبة العروض</h3>
+                    <div class="calculator-form">
+                        
+                        <label for="cairo-hotel">اختيار الفندق المطلوب:</label>
+                        <select id="cairo-hotel" onchange="calculateTripPrice('cairo')">
+                            </select>
+                        
+                        <label for="cairo-nights">عدد الليالي:</label>
+                        <input type="number" id="cairo-nights" min="1" value="7" onchange="calculateTripPrice('cairo')">
+
+                        <label for="cairo-date">تاريخ السفر:</label>
+                        <input type="date" id="cairo-date" onchange="checkFormValidity('cairo')">
+
+                        <label for="cairo-people-count">عدد الأشخاص:</label>
+                        <input type="number" id="cairo-people-count" min="1" value="2" onchange="calculateTripPrice('cairo')">
+
+                        <label for="cairo-phone">رقم الهاتف:</label>
+                        <input type="tel" id="cairo-phone" placeholder="للتواصل" onchange="checkFormValidity('cairo')">
+
+                    </div>
+                    
+                    <div id="cairo-result" class="result-box" style="display: none;">
+                    </div>
+
+                    <button id="cairo-send-btn" onclick="sendInquiryEmail('cairo')" disabled>
+                        إرسال طلب الحجز
+                    </button>
+                </div>
+
+                <div class="trip-details-box">
+                    <h4>السعر يشمل (القاهرة):</h4>
+                    <ul>
+                        <li>تذاكر الطيران على متن الملكية (ذهاب وإياب) ✈️</li>
+                        <li>   الاقامة في الفندق حسب عدد الليالي المختارة    </li>
+                        <li> جميع الضرائب الأردنية والمصرية</li>
+                        <li> الأستقبال والتوديع من والى المطار ( سيارة خاصة )</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="beirut-page" class="page">
+            <div class="city-header">
+                <h2>بيروت - Beirut</h2>
+                <button onclick="showPage('home-page')" class="back-button">العودة للرئيسية</button>
+            </div>
+
+            <div class="city-layout">
+                <div class="calculator-container">
+                    <h3>آلة حاسبة العروض</h3>
+                    <div class="calculator-form">
+                        
+                        <label for="beirut-hotel">اختيار الفندق المطلوب:</label>
+                        <select id="beirut-hotel" onchange="calculateTripPrice('beirut')">
+                            </select>
+                        
+                        <label for="beirut-nights">عدد الليالي:</label>
+                        <input type="number" id="beirut-nights" min="1" value="7" onchange="calculateTripPrice('beirut')">
+
+                        <label for="beirut-date">تاريخ السفر:</label>
+                        <input type="date" id="beirut-date" onchange="checkFormValidity('beirut')">
+
+                        <label for="beirut-people-count">عدد الأشخاص:</label>
+                        <input type="number" id="beirut-people-count" min="1" value="2" onchange="calculateTripPrice('beirut')">
+
+                        <label for="beirut-phone">رقم الهاتف:</label>
+                        <input type="tel" id="beirut-phone" placeholder="للتواصل" onchange="checkFormValidity('beirut')">
+
+                    </div>
+                    
+                    <div id="beirut-result" class="result-box" style="display: none;">
+                    </div>
+
+                    <button id="beirut-send-btn" onclick="sendInquiryEmail('beirut')" disabled>
+                        إرسال طلب الحجز
+                    </button>
+                </div>
+
+                <div class="trip-details-box">
+                    <h4>السعر يشمل (بيروت):</h4>
+                    <ul>
+                        <li>تذاكر الطيران الدولية (ذهاب وإياب) ✈️</li>
+                        <li>الإقامة في الفندق المختار بالعدد المختار من الليالي</li>
+                        <li>الضرائب والرسوم</li>
+                        <li>لا تشمل العروض المواصلات أو الجولات في السعر الأساسي</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="batumi-page" class="page">
+            <div class="city-header">
+                <h2>باتومي - Batumi</h2>
+                <button onclick="showPage('home-page')" class="back-button">العودة للرئيسية</button>
+            </div>
+
+            <div class="city-layout">
+                <div class="calculator-container">
+                    <h3>آلة حاسبة العروض</h3>
+                    <div class="calculator-form">
+                        
+                        <label for="batumi-hotel">اختيار الفندق المطلوب:</label>
+                        <select id="batumi-hotel" onchange="calculateFixedTripPrice('batumi')">
+                            <option value="0" disabled selected>اختر فندقاً من الجدول أعلاه</option>
+                        </select>
+                        
+                        <label for="batumi-date">تاريخ السفر:</label>
+                        <input type="date" id="batumi-date" onchange="checkFormValidity('batumi')">
+                        
+                        <label for="batumi-people-count">عدد الأشخاص:</label>
+                        <input type="number" id="batumi-people-count" min="1" value="2" onchange="checkFormValidity('batumi')">
+                        
+                        <label for="batumi-phone">رقم الهاتف:</label>
+                        <input type="tel" id="batumi-phone" placeholder="للتواصل" onchange="checkFormValidity('batumi')">
+
+                    </div>
+                    
+                    <div id="batumi-result" class="result-box" style="display: none;">
+                    </div>
+
+                    <button id="batumi-send-btn" onclick="sendInquiryEmail('batumi')" disabled>
+                        إرسال طلب الحجز
+                    </button>
+                </div>
+
+                <div id="batumi-prices-table-container" class="prices-table-container">
+                    </div>
+            </div>
+        </section>
+
+        <section id="tbilisi-page" class="page">
+    <div class="city-header">
+        <h2>تبليسي - Tbilisi</h2>
+        <button onclick="showPage('home-page')" class="back-button">العودة للرئيسية</button>
+    </div>
+
+    <div class="city-layout">
+        
+        <div id="tbilisi-prices-table-container" class="prices-table-container">
+            </div>
+
+        <div class="calculator-container">
+            <h3>آلة حاسبة العروض (8 أيام / 7 ليالي)</h3>
+            
+            <div class="trip-details-box">
+                <h4>السعر يشمل (تبليسي):</h4>
+                <ul>
+                    <li>تذاكر الطيران الدولية (ذهاب وإياب) ✈️</li>
+                    <li>إقامة 7 ليالي في الفندق المختار</li>
+                    <li>وجبات الطعام حسب الباقة (فطور أو بدون فطور) 🍽️</li>
+                    <li>جميع التنقلات بين المطار والفندق</li>
+                    <li>جولات سياحية يومية مع مرشد</li>
+                </ul>
+            </div>
+
+            <div class="calculator-form">
+                
+                <label for="tbilisi-option">اختيار الباقة المطلوبة:</label>
+                <select id="tbilisi-option" onchange="calculateFixedTripPrice('tbilisi')">
+                    <option value="0" disabled selected>اختر فندقاً من الجدول</option>
+                </select>
+                
+                <label for="tbilisi-date">تاريخ السفر (الرحيل كل يوم جمعة):</label>
+                <input type="date" id="tbilisi-date" onchange="checkFormValidity('tbilisi')">
+                
+                <label for="tbilisi-people-count">عدد الأشخاص:</label>
+                <input type="number" id="tbilisi-people-count" min="1" value="2" onchange="checkFormValidity('tbilisi')">
+                
+                <label for="tbilisi-phone">رقم الهاتف:</label>
+                <input type="tel" id="tbilisi-phone" placeholder="للتواصل" onchange="checkFormValidity('tbilisi')">
+
+            </div>
+            
+            <div id="tbilisi-result" class="result-box" style="display: none;">
+            </div>
+
+            <button id="tbilisi-send-btn" onclick="sendInquiryEmail('tbilisi')" disabled>
+                إرسال طلب الحجز
+            </button>
+        </div>
+    </div>
+</section>
+
+<section id="batumiTbilisi-page" class="page">
+    <div class="city-header">
+        <h2>باتومي وتبليسي (باقة موحدة 9 أيام / 8 ليالي) 🇬🇪</h2>
+        <button class="back-button" onclick="showPage('home-page')">العودة للصفحة الرئيسية</button>
+    </div>
+
+    <div class="city-layout">
+        
+        <div id="batumiTbilisi-prices-table-container" class="prices-table-container">
+            </div>
+
+        <div class="calculator-container">
+            <h3>آلة حاسبة العروض الثابتة</h3>
+            
+            <div class="trip-details-box">
+                <h4>السعر يشمل (باقة باتومي وتبليسي):</h4>
+                <ul>
+                    <li>تذاكر الطيران الدولية (ذهاب وإياب) ✈️</li>
+                    <li>إقامة 4 ليالي باتومي و 4 ليالي تبليسي</li>
+                    <li>وجبات الطعام حسب الباقة المختارة 🍽️</li>
+                    <li>جميع التنقلات بين المدن والجولات السياحية</li>
+                    <li>تأمين صحي للسفر</li>
+                </ul>
+            </div>
+
+            <div class="calculator-form">
+                
+                <label for="batumiTbilisi-option">اختيار الباقة المطلوبة:</label>
+                <select id="batumiTbilisi-option" onchange="calculateFixedTripPrice('batumiTbilisi')">
+                    <option value="0" disabled selected>اختر باقة من الجدول أعلاه</option>
+                </select>
+                
+                <label for="batumiTbilisi-date">تاريخ السفر:</label>
+                <input type="date" id="batumiTbilisi-date" onchange="checkFormValidity('batumiTbilisi')">
+                
+                <label for="batumiTbilisi-people-count">عدد الأشخاص:</label>
+                <input type="number" id="batumiTbilisi-people-count" min="1" value="2" onchange="checkFormValidity('batumiTbilisi')">
+                
+                <label for="batumiTbilisi-phone">رقم الهاتف:</label>
+                <input type="tel" id="batumiTbilisi-phone" placeholder="للتواصل" onchange="checkFormValidity('batumiTbilisi')">
+
+            </div>
+            
+            <div id="batumiTbilisi-result" class="result-box" style="display: none;">
+            </div>
+
+            <button id="batumiTbilisi-send-btn" onclick="sendInquiryEmail('batumiTbilisi')" disabled>
+                إرسال طلب الحجز
+            </button>
+        </div>
+    </div>
+</section>
+       
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
