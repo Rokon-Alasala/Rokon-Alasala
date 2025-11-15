@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rokon Alasala Travel - حاسبة الرحلات</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <header id="main-header">
+        <img id="logo" src="logo.png" alt="شعار ركن الأصالة للسفر والسياحة">
+        <div class="header-content">
+            <h1>ركن الأصالة للسفر والسياحة</h1>
+            </div>
+    </header>
+
+    <main id="content">
+        
+        <section id="trip-selector" class="fade-in">
+            <h2> اختر وجهتك </h2>
+            <div class="destinations-grid">
+                
+                <div class="city-card" onclick="showCalculator('istanbul', 'اسطنبول - Istanbul')">
+                    <img src="images/ISTANBUL.JPG" alt="صورة اسطنبول">
+                    <h3>اسطنبول - Istanbul</h3>
+                    <p>أرض الحضارات والتاريخ الساحر.</p>
+                </div>
+            
+                <div class="city-card" onclick="showCalculator('antalya', 'أنطاليا - Antalya')">
+                    <img src="images/antalya.jpg" alt="صورة أنطاليا">
+                    <h3>أنطاليا - Antalya</h3>
+                    <p>شواطئ فيروزية ورفاهية لا تُنسى.</p>
+                </div>
+                
+                <div class="city-card" onclick="showCalculator('cairo', 'القاهرة - Cairo')">
+                    <img src="images/cairo.jpg" alt="صورة القاهرة">
+                    <h3>القاهرة - Cairo</h3>
+                    <p>أهرامات الجيزة وعظمة النيل الخالدة.</p>
+                </div>
+
+                <div class="city-card"style="display: none;" onclick="showCalculator('beirut', 'بيروت - Beirut')">
+                    <img src="images/beirut.jpg" alt="صورة بيروت">
+                    <h3>بيروت - Beirut</h3>
+                    <p>باريس الشرق الساحرة.</p>
+                </div>
+                
+                <div class="city-card" onclick="showPage('tbilisi-page')">
+                    <img src="https://picsum.photos/id/212/300/200" alt="صورة تبليسي">
+                    <h3>تبليسي 🇬🇪</h3>
+                    <p>  (جورجيا الساحرة).</p>
+                </div>
+                <div class="city-card" onclick="showPage('georgiaArmenia-page')">
+                    <img src="images/gorarm.png" alt="صورة جورجيا وأرمينيا">
+                    <h3>جورجيا وأرمينيا 🇬🇪🇦🇲</h3>
+                    <p>  (رحل القوقاز ).</p>
+                </div>
+                
+                <div class="city-card" onclick="showPage('umrah-page')">
+                    <img src="images/umrah.jpg" alt="صورة العمرة">
+                    <h3>العمرة براً 🕋</h3>
+                    <p>   خطوتك الأولى نحو بيت الله الحرام.</p>
+                </div>
+                
+            </div>
+        </section>
+
+        <section id="calculator-page" class="calculator-container hidden fade-in">
+            <button class="back-button" onclick="showSelector()">
+                <span class="arrow">→</span> العودة للرئيسية  
+            </button>
+            
+            <h2 id="calculator-title">حاسبة السعر</h2> <div id="fixed-trip-details" style="display: none;">
+                </div>
+
+            <div class="details-and-form">
+                
+                <div class="details-box">
+                    <h3>تفاصيل العرض الأساسي</h3>
+                    
+                    <div id="details-istanbul" class="city-details">
+                        <ul>
+                            <li>تذاكر الطيران على متن الأردنية للطيران (ذهاب وإياب) ✈️</li>
+                            <li>الاقامة في الفندق حسب عدد الليالي المختارة🏨</li>
+                            <li>وجبة الإفطار يوميا 🍽️</li>
+                            <li>الاستقبال والتوديع من والى المطار 🚘</li>
+                            <li>جميع الضرائب والرسوم</li>
+                            <li>رحلات يومية:</li>
+                            <li>* SAPANCA - صبنجة ومعشوقية مع وجبة غداء</li>
+                            <li>* BURSA TELESİYEJ - بورصة و تلسياج - مع وجبة غداء</li>
+                            <li>* PRİNCESS İSLAND - جزيرة الأميرات مع وجبة غداء</li>
+                            <li>* ŞİLE - شيللا وأغوا مع وجبة غداء</li>
+                            <li>* ARABİC NİGHT - سهرة عربية في البسفور مع وجبة عشاء</li>
+                        </ul>
+                    </div>
+
+                    <div id="details-antalya" class="city-details hidden">
+                        <ul>
+                            <li>تذكرة طيران ذهاب وعودة على متن طيران PEGASUS أو SUNEXPRESS.</li>
+                            <li>الإقامة في الفندق حسب عدد الليالي المختارة.</li>
+                            <li>استقبال وتوديع من والى المطار سيارة خاصة   .</li>
+                            </ul>
+                    </div>
+
+                    <div id="details-cairo" class="city-details hidden">
+                        <ul>
+                            <li>تذكرة طيران ذهاب وعودة.</li>
+                            <li>الإقامة في الفندق حسب عدد الليالي المختارة.</li>
+                            <li>استقبال وتوديع من والى المطار.</li>
+                            <li>تأمين صحي .</li>
+                            </ul>
+                    </div>
+                    
+                    <div id="details-beirut" class="city-details hidden">
+                        <ul>
+                            <li>تذكرة طيران ذهاب وعودة.</li>
+                            <li>الإقامة في الفندق حسب عدد الليالي المختارة.</li>
+                            <li>استقبال وتوديع من والى المطار .</li>
+                            <li>جولات سياحية مع مرشد ( أختياري )  .</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="calculator-form">
+                    
+                    <label for="hotel-select">اختر الفندق </label>
+                    <select id="hotel-select"></select>
+
+                    <div id="nights-input-group">
+                        <label for="nights-count">عدد الليالي:</label>
+                        <input type="number" id="nights-count" min="1" value="4">
+                    </div>
+                    
+                    <label for="people-count">عدد الأشخاص:</label>
+                    <input type="number" id="people-count" min="1" value="2">
+                    
+                    <label for="travel-date">تاريخ السفر:</label>
+                    <input type="date" id="travel-date">
+
+                    
+                    
+
+                </div>
+            </div>
+            
+            <div id="calculation-result" class="result-box">
+                <p class="result-text">السعر للشخص في الغرفة المزدوجة:</p>
+                <strong class="result-price">-- دينار</strong>
+            </div>
+
+            <button id="send-btn" onclick="sendInquiryEmail('regular')">
+                إرسال طلب الحجز 💬
+            </button>
+            
+        </section>
+        
+        <section id="tbilisi-page" class="calculator-container hidden fade-in">
+            <button class="back-button" onclick="showSelector()">
+                <span class="arrow">→</span> العودة للرئيسية  
+            </button>
+            <h2 id="calculator-title-tbilisi">تبليسي - Tbilisi (باقات ثابتة)</h2>
+
+            <div class="tbilisi-page-layout">
+                
+                <div class="tbilisi-right-content">
+                    
+                    <div class="details-box">
+                        <h3>تفاصيل العرض الأساسي</h3>
+                        <div id="details-tbilisi" class="city-details">
+                            <ul>
+                                <li>تذكرة طيران ذهاب وعودة.</li>
+                                <li>إقامة 7 ليالٍ / 8 أيام .</li>
+                                <li>جولات سياحية يومية شاملة المواصلات ومرشد.</li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="calculator-form">
+                        
+                        <label for="tbilisi-option">اختر الفندق    :</label>
+                        <select id="tbilisi-option"></select>
+                        
+                        <label for="tbilisi-people-count">عدد الأشخاص:</label>
+                        <input type="number" id="tbilisi-people-count" min="1" value="2" onchange="updatePriceAndValidity('tbilisi')">
+                        
+                        <label for="tbilisi-date">تاريخ السفر (السفر كل يوم جمعة):</label>
+                        <input type="date" id="tbilisi-date" onchange="updatePriceAndValidity('tbilisi')">
+
+                        
+                        
+
+                    </div>
+                    
+                </div>
+                
+                <div id="tbilisi-prices-table-container"></div>
+                
+            </div>
+            
+            <div id="calculation-result-tbilisi" class="result-box">
+                <p class="result-text">السعر  للشخص في الغرفة المزدوجة:</p>
+                <strong class="result-price">-- دينار</strong>
+            </div>
+
+            <button id="send-btn-tbilisi" onclick="sendInquiryEmail('tbilisi')">
+                إرسال طلب الحجز   💬
+            </button>
+        </section>
+
+        <section id="georgiaArmenia-page" class="calculator-container hidden fade-in">
+            <button class="back-button" onclick="showSelector()">
+                <span class="arrow">→</span> العودة للرئيسية  
+            </button>
+            <h2 id="calculator-title-georgiaArmenia">جورجيا وأرمينيا - رحلة القوقاز </h2>
+
+            <div class="tbilisi-page-layout">
+                
+                <div class="tbilisi-right-content">
+                    
+                    <div class="details-box">
+                        <h3>تفاصيل العرض الأساسي</h3>
+                        <div id="details-georgiaArmenia" class="city-details">
+                            <ul>
+                                <li>تذكرة طيران ذهاب وعودة .</li>
+                                <li>الإقامة 7 ليالٍ (4 ليالي في جورجيا، 3 ليالي في أرمينيا).</li>
+                                <li>جميع الجولات السياحية والتنقلات بين المدن .</li>
+                                <li>استقبال وتوديع من والى المطار في كلا البلدين.</li>
+                                <li>مرشد سياحي مرافق طوال الرحلة.</li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="calculator-form">
+                        
+                        <label for="georgiaArmenia-option">اختر الفندق    :</label>
+                        <select id="georgiaArmenia-option" onchange="updatePriceAndValidity('georgiaArmenia')"></select>
+                        
+                        <label for="georgiaArmenia-people-count">عدد الأشخاص:</label>
+                        <input type="number" id="georgiaArmenia-people-count" min="1" value="2" onchange="updatePriceAndValidity('georgiaArmenia')">
+                        
+                        <label for="georgiaArmenia-date">تاريخ السفر (السفر كل يوم جمعة):</label>
+                        <input type="date" id="georgiaArmenia-date" onchange="updatePriceAndValidity('georgiaArmenia')">
+
+                        
+                        
+
+                    </div>
+                    
+                </div>
+                
+                <div id="georgiaArmenia-prices-table-container"></div>
+                
+            </div>
+            
+            <div id="calculation-result-georgiaArmenia" class="result-box">
+                <p class="result-text">السعر  للشخص في الغرفة المزدوجة:</p>
+                <strong class="result-price">-- دينار</strong>
+            </div>
+
+            <button id="send-btn-georgiaArmenia" onclick="sendInquiryEmail('georgiaArmenia')">
+                إرسال طلب الحجز   💬
+            </button>
+        </section>
+        
+        <section id="umrah-page" class="calculator-container hidden fade-in">
+            <button class="back-button" onclick="showSelector()">
+                <span class="arrow">→</span> العودة للرئيسية  
+            </button>
+            <h2 id="calculator-title-umrah">العمرة براً - عروض وباقات</h2>
+            
+            <div class="umrah-page-layout">
+                
+                <div class="umrah-right-content">
+                    
+                    <div class="details-box">
+                        <h3>تفاصيل العرض الأساسي</h3>
+                        <p>يرجى اختيار الباقة من الجدول في اليسار وإكمال نموذج الاستفسار للتأكد من توفر المقاعد.</p>
+                        <div id="umrah-details-content">
+                            </div>
+                    </div>
+
+                    <div class="calculator-form">
+                        
+                        <label for="umrah-trip-type">1. اختيار الوجهة :</label>
+                        <select id="umrah-trip-type" onchange="populateUmrahHotels(); checkUmrahValidity();">
+                            <option value="0" disabled selected>اختر مكة فقط أو مكة والمدينة</option>
+                            <option value="meccaOnly">مكة فقط (7 ليال)</option>
+                            <option value="meccaMedina">مكة والمدينة (9 ليال)</option>
+                        </select>
+
+                        <label for="umrah-travel-date">2. اختيار تاريخ السفر:</label>
+                        <select id="umrah-travel-date" onchange="checkUmrahValidity()" disabled>
+                            <option value="0" disabled selected>اختر نوع الباقة أولاً</option>
+                        </select>
+
+                        <label for="umrah-hotel-select">3. تحديد الفندق:</label>
+                        <select id="umrah-hotel-select" onchange="checkUmrahValidity()" disabled>
+                            <option value="0" disabled selected>اختر نوع الباقة أولاً</option>
+                        </select>
+                        
+                        <label for="umrah-phone">رقم الهاتف (للتواصل السريع):</label>
+                        <input type="tel" id="umrah-phone" placeholder="أدخل رقم هاتفك للتواصل" onchange="checkUmrahValidity()">
+
+
+                        <button id="umrah-send-btn" onclick="sendInquiryEmail('umrah')" disabled>
+                            إرسال طلب الاستفسار عبر واتساب 💬
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="umrah-tables-container" class="umrah-tables-container">
+                    </div>
+                
+            </div>
+            
+            </section>
+
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

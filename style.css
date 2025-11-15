@@ -1,0 +1,446 @@
+/* ======================================================= */
+/* 1. المتغيرات والألوان الفخمة (تم الاحتفاظ بها) */
+/* ======================================================= */
+:root {
+    --gold-deep: #c99b07;           /* لون ذهبي عميق للعناصر الرئيسية */
+    --brown-charcoal: #3D3A3A;      /* بني غامق (لون أساسي للنصوص والخلفية) */
+    --cream-white: #FCFCFC;         /* أبيض كريمي للخلفية الرئيسية */
+    --card-background: #ffffff;     /* خلفية البطاقات (نقاء) */
+    --success-color: #25D366;       /* أخضر الواتساب */
+    --inactive-color: #999999;      /* رمادي للزر غير المفعل */
+    --shadow-soft: 0 10px 35px rgba(0, 0, 0, 0.15); /* ظل أنيق */
+    --star-color: gold;             /* لون النجوم الأصفر المطلوب */
+}
+
+body {
+    direction: rtl; 
+    font-family: 'Tajawal', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--brown-charcoal);
+    background-color: var(--cream-white); 
+    background-attachment: fixed;
+    line-height: 1.8; /* تحسين قراءة النصوص */
+}
+
+#content {
+    padding: 20px 0px;
+    max-width: 1600px; /* عرض مثالي */
+    margin: 0 auto;
+}
+
+/* 2. الهيدر (Header) واللوجو - تعديل ليصبح يمينًا */
+/* ======================================================= */
+#main-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* بدء المحتوى من اليمين */
+    padding: 20px 40px;
+    background-color: var(--card-background);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+#logo {
+    width: 200PX; /* تكبير اللوجو */
+    height: 80px;
+    object-fit: contain;
+    margin-inline-end: 20px; /* زيادة الهامش بعد اللوجو */
+}
+
+.header-content h1 {
+    margin: 0;
+    font-size: 2em; /* تكبير الخط قليلاً */
+    color: var(--brown-charcoal);
+    font-weight: 800;
+}
+
+.header-content p {
+    margin: 0;
+    color: var(--gold-deep);
+    font-weight: 600;
+    font-size: 1em;
+}
+
+/* 3. تنسيق بطاقات الوجهات (Destinations Grid) */
+/* ======================================================= */
+.destinations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+/* تنسيقات البطاقة لم تتغير */
+.city-card {
+    background-color: var(--card-background);
+    border-radius: 19px;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid #eee;
+}
+
+.city-card:hover {
+    transform: translateY(-20px);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+}
+
+.city-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.city-card:hover img {
+    transform: scale(1.2);
+}
+
+.city-card h3 {
+    color: var(--gold-deep);
+    margin: 15px 0 5px 0;
+    font-weight: 700;
+}
+
+.city-card p {
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 0.9em;
+    padding: 0 15px;
+}
+
+/* 4. حاوية الحاسبة والتفاصيل */
+/* ======================================================= */
+.calculator-container {
+    padding: 30px;
+    background-color: var(--card-background);
+    border-radius: 15px;
+    box-shadow: var(--shadow-soft);
+    margin-top: 30px;
+}
+
+.details-and-form {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr; /* للمدن العادية: Details (R: 1fr), Form (L: 1.2fr) */
+    gap: 40px;
+    margin-top: 30px;
+}
+
+/* تنسيق صفحة تبليسي */
+.tbilisi-page-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* التفاصيل/الحاسبة يمين (1fr)، الجدول يسار (1.5fr) */
+    gap: 40px;
+    margin-top: 30px;
+}
+
+/* تنسيق صفحة العمرة الجديدة (مطابق لتبليسي لكن بأسماء مختلفة) */
+.umrah-page-layout {
+    display: grid;
+    /* الترتيب: النموذج/التفاصيل يمين (1fr)، الجداول يسار (1.5fr) */
+    grid-template-columns: 1fr 1.5fr; 
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.tbilisi-right-content,
+.umrah-right-content {
+    /* ترتيب العناصر في العمود اليميني (Details فوق Form) */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.umrah-tables-container {
+    /* تنسيق حاوية الجداول لضمان ظهور الجدولين فوق بعض */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+/* صندوق التفاصيل */
+.details-box {
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    padding: 25px;
+    border-right: 5px solid var(--gold-deep);
+}
+
+.details-box h3 {
+    margin-top: 0;
+    color: var(--brown-charcoal);
+    font-size: 1.4em;
+    border-bottom: 1px dashed #ddd;
+    padding-bottom: 10px;
+}
+
+.details-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0 0 0;
+}
+
+.details-box ul li {
+    font-size: 1.05em;
+    padding: 8px 0;
+    color: #555;
+    position: relative;
+    padding-right: 25px;
+}
+
+.details-box ul li::before {
+    content: "✔️";
+    position: absolute;
+    right: 0;
+    color: var(--gold-deep);
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+/* نموذج الحاسبة */
+.calculator-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.calculator-form label {
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: var(--brown-charcoal);
+    font-size: 1.05em;
+}
+
+.calculator-form input, 
+.calculator-form select {
+    width: 100%; /* لضمان تساوي جميع الحقول */
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1.0em;
+    font-family: 'Tajawal', sans-serif;
+    color: var(--brown-charcoal);
+    transition: border-color 0.3s;
+    box-sizing: border-box; /* لضمان أن الحجم يشمل البادينغ */
+}
+
+.calculator-form input:focus, 
+.calculator-form select:focus {
+    border-color: var(--gold-deep);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(201, 155, 7, 0.1);
+}
+
+/* 5. تنسيق النتيجة والزر */
+.result-box {
+    display: flex !important; 
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFFBEA; 
+    border: 2px solid var(--gold-deep);
+    border-radius: 10px;
+    padding: 15px 25px; 
+    margin-top: 30px;
+}
+
+.result-box p.result-text {
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--brown-charcoal);
+}
+
+.result-box strong.result-price {
+    color: var(--gold-deep); 
+    font-size: 2em; 
+    font-weight: 800;
+    margin: 0;
+}
+
+/* زر الإرسال - التنسيق الجديد */
+[id^="send-btn"] { 
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    background-color: var(--inactive-color); 
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.4em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s, opacity 0.3s;
+}
+
+[id^="send-btn"].active-send {
+    background-color: var(--success-color); 
+}
+
+[id^="send-btn"]:hover:not(:disabled) {
+    background-color: #1FAF59;
+}
+
+[id^="send-btn"]:disabled {
+    opacity: 1; 
+    cursor: pointer; 
+}
+
+/* زر العودة - التنسيق الجديد المطلوب */
+.back-button {
+    background: var(--card-background);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 8px 100px;
+    color: var(--gold-deep);
+    font-size: 1.5em;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 20px;
+    display: inline-flex; 
+    align-items: center;
+    transition: all 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.back-button:hover {
+    color: var(--brown-charcoal);
+    background-color: #f7f7f7;
+}
+
+.back-button .arrow {
+    font-size: 1.2em;
+    margin-inline-start: 10px;
+    transition: transform 0.3s;
+    display: inline-block;
+    animation: bounceRight 2s infinite ease-in-out; 
+}
+
+@keyframes bounceRight {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-3px);
+    }
+}
+
+
+/* تحسينات الإخفاء والإظهار والـ Fade-in */
+.hidden {
+    display: none !important;
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* تنسيقات الجداول العامة */
+#tbilisi-prices-table-container,
+.umrah-tables-container > div,
+#georgiaArmenia-prices-table-container { 
+    padding: 15px;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+}
+#tbilisi-prices-table-container h4,
+.umrah-tables-container h4,
+#georgiaArmenia-prices-table-container h4 {
+    margin-top: 0;
+    font-size: 1.2em;
+    color: var(--brown-charcoal);
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.prices-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 1.0em;
+}
+.prices-table th, .prices-table td {
+    border: 1px solid #ddd;
+    padding: 10px 12px;
+    text-align: center;
+}
+.prices-table th {
+    background-color: var(--brown-charcoal);
+    color: white;
+    font-weight: 700;
+    font-size: 1.0em;
+}
+.prices-table tr:hover {
+    background-color: #FEF7E6;
+}
+.prices-table strong {
+    color: var(--gold-deep); 
+    font-size: 1.4em; 
+    font-weight: 800;
+}
+#umrah-send-btn {
+    /* إلغاء أي هامش علوي موروث زائد، وضمان أن المسافة بينه وبين الحقل السابق يتحكم بها الـ gap */
+    margin-top: 0; 
+    /* إعادة تطبيق حجم الخط والـ Padding لضمان البروز */
+    padding: 16px; 
+    font-size: 1.3em;
+    font-weight: 700;
+}
+
+
+/* 6. تنسيق الجوال (Mobile Responsiveness) */
+@media (max-width: 800px) {
+    /* إخفاء رأس الصفحة على الهاتف (مطلوب) */
+    #main-header {
+        display: none;
+    }
+    
+    #content {
+        padding: 0; 
+    }
+
+    .calculator-container {
+        margin-top: 0;
+        padding: 20px 15px; 
+        border-radius: 0; 
+        box-shadow: none; 
+        min-height: 100vh; 
+    }
+    
+    /* تغيير الترتيب لصفحتي تبليسي والعمرة في الجوال: النموذج يمين، الجدول يسار */
+    .tbilisi-page-layout,
+    .umrah-page-layout {
+        grid-template-columns: 1fr; 
+    }
+    .tbilisi-right-content,
+    .umrah-right-content {
+        order: 1; /* النموذج والتفاصيل أولاً */
+        gap: 15px;
+    }
+    #tbilisi-prices-table-container,
+    .umrah-tables-container,
+    #georgiaArmenia-prices-table-container {
+        order: 2; /* الجداول ثانياً */
+    }
+    
+    .details-and-form {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .result-box strong.result-price {
+        font-size: 1.6em; 
+    }
+}
